@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:refreshed/refreshed.dart';
 import '../controllers/bottom_sheet_controller.dart';
 
 class DraggableArea extends StatelessWidget {

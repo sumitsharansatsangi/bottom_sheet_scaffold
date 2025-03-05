@@ -1,7 +1,7 @@
 import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:refreshed/refreshed.dart';
 import '../controllers/bottom_sheet_controller.dart';
 
 class BottomSheetScaffold extends StatelessWidget {
@@ -71,16 +71,20 @@ class BottomSheetScaffold extends StatelessWidget {
   final Future<bool> Function()? onWillPop;
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: onWillPop ??
-          () async {
-            if (BottomSheetPanel.isOpen) {
-              BottomSheetPanel.close();
-              return false;
-            } else {
-              return true;
-            }
-          },
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, __) async {
+        if (didPop) {
+          return; // If the system already handled the pop, no further action is needed
+        }
+
+        if (BottomSheetPanel.isOpen) {
+          BottomSheetPanel.close(); // Close bottom sheet if open
+          return; // Prevent navigation
+        } else {
+          onWillPop != null ? await onWillPop!() : null; // Call onWillPop if provided
+        }
+      },
       child: Scaffold(
         extendBody: extendBody,
         extendBodyBehindAppBar: extendBodyBehindAppBar,
@@ -133,7 +137,7 @@ class BottomSheetScaffold extends StatelessWidget {
                       width: double.infinity,
                       height: double.infinity,
                       color: BottomSheetPanel.isOpen
-                          ? barrierColor.withOpacity(0.5)
+                          ? barrierColor.withAlpha(127)
                           : Colors.transparent,
                       child: body);
                 }),

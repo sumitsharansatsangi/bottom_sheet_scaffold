@@ -1,6 +1,6 @@
 import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:refreshed/refreshed.dart';
 
 import '../controllers/bottom_sheet_controller.dart';
 
@@ -29,7 +29,7 @@ class DraggableBottomSheet extends StatelessWidget {
       this.radius = 15,
       this.onShow,
       required this.body}) {
-    if (!GetInstance().isRegistered<BottomSheetController>()) {
+    if (!Get().isRegistered<BottomSheetController>()) {
       Get.put(BottomSheetController());
     }
     Get.find<BottomSheetController>().maxHeight = maxHeight;
