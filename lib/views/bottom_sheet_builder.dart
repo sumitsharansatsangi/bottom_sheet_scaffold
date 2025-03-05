@@ -1,7 +1,7 @@
 import 'package:bottom_sheet_scaffold/controllers/bottom_sheet_controller.dart';
 import 'package:bottom_sheet_scaffold/models/sheet_status.dart';
 import 'package:flutter/material.dart';
-import 'package:refreshed/refreshed.dart';
+import 'package:get/get.dart';
 
 class BottomSheetBuilder extends StatelessWidget {
   final Widget Function(SheetStatus status, BuildContext context) builder;

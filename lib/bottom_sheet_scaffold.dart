@@ -1,7 +1,7 @@
 library;
 
 import 'package:bottom_sheet_scaffold/controllers/bottom_sheet_controller.dart';
-import 'package:refreshed/refreshed.dart';
+import 'package:get/get.dart';
 export 'views/bottom_sheet.dart';
 export 'views/bottom_sheet_scaffold.dart';
 export 'views/draggable_area.dart';

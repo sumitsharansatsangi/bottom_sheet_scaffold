@@ -1,7 +1,7 @@
 import 'package:bottom_sheet_scaffold/bottom_sheet_scaffold.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:refreshed/refreshed.dart';
+import 'package:get/get.dart';
 import '../controllers/bottom_sheet_controller.dart';
 
 class BottomSheetScaffold extends StatelessWidget {
@@ -82,7 +82,9 @@ class BottomSheetScaffold extends StatelessWidget {
           BottomSheetPanel.close(); // Close bottom sheet if open
           return; // Prevent navigation
         } else {
-          onWillPop != null ? await onWillPop!() : null; // Call onWillPop if provided
+          onWillPop != null
+              ? await onWillPop!()
+              : null; // Call onWillPop if provided
         }
       },
       child: Scaffold(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refreshed/refreshed.dart';
+import 'package:get/get.dart';
 
 import '../controllers/bottom_sheet_controller.dart';
 import 'bottom_sheet_builder.dart';
@@ -17,9 +17,7 @@ class BarrierViewer extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             color: status.isOpened
-                ? Get.find<BottomSheetController>()
-                    .barrierColor
-                    .withAlpha(127)
+                ? Get.find<BottomSheetController>().barrierColor.withAlpha(127)
                 : Colors.transparent,
             child: child);
       },
